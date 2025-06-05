@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Add MCQ{% endblock %}
+
+{% block content %}
+    <h2 class="mb-3">Add New Question</h2>
+    <form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="id_question_text" class="form-label">Question</label>
+        <input type="text" name="question_text" id="id_question_text" class="form-control" value="{{ form.question_text.value|default_if_none:'' }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_choices" class="form-label">Choices (comma separated)</label>
+        <input type="text" name="choices" id="id_choices" class="form-control" value="{{ form.choices.value|default_if_none:'' }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_correct_answer" class="form-label">Correct Answer</label>
+        <input type="text" name="correct_answer" id="id_correct_answer" class="form-control" value="{{ form.correct_answer.value|default_if_none:'' }}">
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+{% endblock %}
