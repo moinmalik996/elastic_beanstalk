@@ -1,0 +1,1 @@
+web: gunicorn elastic_beanstalk.wsgi --bind 127.0.0.1:8000
